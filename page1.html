@@ -33,21 +33,7 @@
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   
   
-  <!-- Début de widget de badge Calendly -->
-<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/capderiviere?hide_landing_page_details=1', text: 'Pre-réservation - Pre-Booking', color: '#1a1a1a', textColor: '#ffffff', branding: false }); }</script>
-<!-- Fin de widget de badge Calendly -->
-
-<style>
-.mbr-arrow-up {
-    bottom: 15px;
-    left: 90px;
-}
-.calendly-badge-widget .calendly-badge-content {
-    border-radius: 0px;
-}
-</style>
+  
   
 
 </head>
@@ -95,7 +81,9 @@
 					</a>
 				</li></ul>
 			
-			<div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-white display-4" href="#">RESERVEZ&nbsp;</a></div>
+			<div class="navbar-buttons mbr-section-btn"><link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+[JS_CODE_0]
+                <a class="btn btn-sm btn-white display-4" href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/capderiviere'});return false;">RESERVATION / BOOKING&nbsp;</a></div>
 		</div>
 	</nav>
 </section>
@@ -198,7 +186,7 @@
                 </h3>
                 <div class="form1 px-3" data-form-type="formoid">
                     <!---Formbuilder Form--->
-                    <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="My Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="rgKMx2VLhKgR6yPmlGHEFl764yBvZNUg2CjfPkrJ1hSmWMLr09CtMygR51rkyx/aHfrdclv4Pd/FAZMRuNQUtSjejxf6hJPadYtxYLwpX7NIOcpeO85UC6RcO4ysIKpA.UaY3hx2vP3gibJJIjMiwPl77pngKX6ONcRO/iYoQpH2+LEHimIwqzqhrAdjuXWQuEOvhaxmfu28li16kN8EKYDl4tuuAq/AYQzCNeAHE+73eZmLxfMdewUIRWJWf5QH5">
+                    <form action="https://mobirise.eu/" method="POST" class="mbr-form form-with-styler" data-form-title="My Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="71pM6RnUVo56B2i12GwV+ikkDBEiYcAsLhU2nZHQuHKQ5ts6ixV2II4tLPg14Zp1LPzkSLs06ANRtnD2n33/GxguCoPEF+MmpNmE0/UoifsmJ7Llzh7gowirOczEvH6X.tZW/mxUluhbxrm0FbyCe6w3NQhO6EgMe/8+lKIY7/HG7PNQ9R4bIlTm7fkKRHuhX3KOwInTG58QdzWBDYT/d7X5wNp8c42TokdpgTw185+lzN9SpC79pmPMwuA84mhol">
                         <div class="row">
                             <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
                             <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12"></div>

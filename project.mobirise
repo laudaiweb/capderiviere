@@ -65,7 +65,7 @@
     "cookiesAlert": false,
     "gdpr": false,
     "pwa-switcher": false,
-    "publishChangesOnly": false,
+    "publishChangesOnly": true,
     "global_header_custom": "",
     "PWA": {
       "enabled": false

@@ -50,7 +50,7 @@
       }
     ],
     "imageResize": true,
-    "uniqCompNum": 68,
+    "uniqCompNum": 69,
     "versionPublish": "5.6.11",
     "screenshot": "screenshot.png",
     "chatbutton": {},
@@ -1247,6 +1247,143 @@
         {
           "alias": false,
           "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".social-row": {
+              "display": "flex",
+              "flex-wrap": "wrap"
+            },
+            ".wrapper": {
+              "max-width": "350px"
+            },
+            ".soc-item": {
+              "display": "flex",
+              "align-items": "center",
+              "justify-content": "center",
+              "border-radius": "50%",
+              "background-color": "white",
+              "margin-right": "0.5rem",
+              "margin-bottom": "1rem",
+              "padding": "0.5rem",
+              "height": "2.5rem",
+              "width": "2.5rem"
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "text-align": "center"
+              },
+              ".social-row": {
+                "justify-content": "center"
+              }
+            },
+            ".list": {
+              "list-style": "none",
+              "padding-left": "0",
+              "@media (max-width: 991px)": {
+                "margin-bottom": "2rem"
+              },
+              "@media (min-width: 992px)": {
+                "margin-bottom": "0rem"
+              },
+              "color": "#bbbbbb"
+            },
+            ".mbr-text": {
+              "color": "#ffffff"
+            },
+            ".mbr-iconfont": {
+              "color": "black"
+            },
+            "img": {
+              "max-width": "100px",
+              "height": "auto",
+              "margin-bottom": "40px"
+            },
+            ".social-list": {
+              "padding-left": "0",
+              "margin-bottom": "0",
+              "list-style": "none",
+              "display": "flex",
+              "width": "100%",
+              "-webkit-flex-wrap": "wrap",
+              "flex-wrap": "wrap",
+              ".mbr-iconfont-social": {
+                "font-size": "1.1rem",
+                "color": "#ffffff",
+                "border": "none",
+                "border-radius": "50%",
+                "padding": "0.6rem",
+                "transition": "all 0.3s",
+                "display": "block",
+                "cursor": "pointer"
+              },
+              ".soc-item": {
+                "margin-right": "1rem",
+                "background-color": "@iconColor"
+              },
+              "a": {
+                "margin": "0",
+                "-webkit-transition": "0.2s linear",
+                "transition": "0.2s linear"
+              },
+              "@media (max-width: 767px)": {
+                "-webkit-justify-content": "center",
+                "justify-content": "center"
+              }
+            },
+            ".item-wrap": {
+              "margin-bottom": "16px"
+            },
+            ".item-wrap:last-child": {
+              "margin-bottom": "0"
+            },
+            ".mbr-section-subtitle": {
+              "margin-bottom": "20px",
+              "color": "#ffffff"
+            },
+            ".text": {
+              "margin-bottom": "36px",
+              "color": "#ffffff"
+            },
+            "a": {
+              "font-weight": "400 !important"
+            },
+            "a.text-danger:hover": {
+              "color": "#EABB80 !important"
+            },
+            "@media (max-width: 768px)": {
+              "img": {
+                "display": "inline"
+              },
+              ".b:nth-child(3)": {
+                "padding-top": "30px"
+              },
+              ".b:nth-child(4)": {
+                "padding-top": "30px"
+              }
+            },
+            ".text1": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "footer1",
+          "_sourceTheme": "socialm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer1\" group=\"Footers\" global once=\"footers\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Item</header>\n        <input type=\"checkbox\" title=\"Social\" name=\"showSocial\" checked>\n        <input type=\"range\" name=\"socialCount\" title=\"Social Count\" min=\"1\" max=\"6\" step=\"1\" value=\"1\" condition=\"showSocial\">\n        <input type=\"color\" title=\"Social Color\" name=\"iconColor\" value=\"#dbb330\" selected condition=\"showSocial\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/socialm5/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#232323\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#232323\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12 col-sm-6 col-md-4 b\">\n                <span class=\"navbar-logo\">\n                    <a href=\"https://mobiri.se\">\n                        <img src=\"@PROJECT_PATH@/assets/images/logo-png-300-blanc-200x57.png\" alt=\"Mobirise\" mbr-style=\"{'height': logoSize + 'rem'}\">\n                    </a>\n                </span>\n                <div class=\"social-list\" mbr-if=\"showSocial\">\n                    <div class=\"soc-item\" mbr-if=\"socialCount>0\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-twitter socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>1\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-facebook socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>2\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-youtube socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>3\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-instagram socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>4\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-behance socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>5\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-vimeo socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-12 col-sm-6 col-md b\">\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .list, .item-wrap\" mbr-theme-style=\"display-7\">LINKS<br></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Marketing</a></li>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Branding</a></li>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Web Design</a></li>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Social Media Management</a></li>\n                </ul>\n            </div>\n            <div class=\"col-12 col-sm-6 col-md b\">\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .list, .item-wrap\" mbr-theme-style=\"display-7\">WORK HOURS</h5>\n                <h5 class=\"text mbr-fonts-style\" data-app-selector=\".text\" mbr-theme-style=\"display-4\">\n                    Monday – Friday: 9AM – 5PM</h5>\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\">LOCATION</h5>\n                <h5 class=\"text mbr-fonts-style\" data-app-selector=\".text\" mbr-theme-style=\"display-4\">\n                    Kirkton Office – by appointment only</h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">64 Coast Rd\n                            KIRKTON\n                            079 5479 6236</a></li>\n                </ul>\n            </div>\n            <div class=\"col-12 col-sm-6 col-md b\">\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .list, .item-wrap\" mbr-theme-style=\"display-7\">\n                    CONTACT</h5>\n                <h5 class=\"text mbr-fonts-style\" data-app-selector=\".text\" mbr-theme-style=\"display-4\">\n                    Text or Call: (404) 345-3240\n                    <div>Email: <a href=\"index.html\" class=\"text-danger\">email@site.com</a></div>\n                </h5>\n                <h5 class=\"text1 mbr-fonts-style\" data-app-selector=\".text1\" mbr-theme-style=\"display-4\">To ensure you\n                    get directed to the right team member, please <a href=\"index.html\" class=\"text-danger\">book a consultation.</a></h5>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "tbgWRnvakX",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {},
+          "_anchor": "footer1-1w"
+        },
+        {
+          "alias": false,
+          "_styles": {
             "padding-top": "(@paddingTop * 15px)",
             "padding-bottom": "(@paddingBottom * 15px)",
             "& when (@bg-type = 'image')": {
@@ -2438,6 +2575,143 @@
           "_global": true,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".social-row": {
+              "display": "flex",
+              "flex-wrap": "wrap"
+            },
+            ".wrapper": {
+              "max-width": "350px"
+            },
+            ".soc-item": {
+              "display": "flex",
+              "align-items": "center",
+              "justify-content": "center",
+              "border-radius": "50%",
+              "background-color": "white",
+              "margin-right": "0.5rem",
+              "margin-bottom": "1rem",
+              "padding": "0.5rem",
+              "height": "2.5rem",
+              "width": "2.5rem"
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "text-align": "center"
+              },
+              ".social-row": {
+                "justify-content": "center"
+              }
+            },
+            ".list": {
+              "list-style": "none",
+              "padding-left": "0",
+              "@media (max-width: 991px)": {
+                "margin-bottom": "2rem"
+              },
+              "@media (min-width: 992px)": {
+                "margin-bottom": "0rem"
+              },
+              "color": "#bbbbbb"
+            },
+            ".mbr-text": {
+              "color": "#ffffff"
+            },
+            ".mbr-iconfont": {
+              "color": "black"
+            },
+            "img": {
+              "max-width": "100px",
+              "height": "auto",
+              "margin-bottom": "40px"
+            },
+            ".social-list": {
+              "padding-left": "0",
+              "margin-bottom": "0",
+              "list-style": "none",
+              "display": "flex",
+              "width": "100%",
+              "-webkit-flex-wrap": "wrap",
+              "flex-wrap": "wrap",
+              ".mbr-iconfont-social": {
+                "font-size": "1.1rem",
+                "color": "#ffffff",
+                "border": "none",
+                "border-radius": "50%",
+                "padding": "0.6rem",
+                "transition": "all 0.3s",
+                "display": "block",
+                "cursor": "pointer"
+              },
+              ".soc-item": {
+                "margin-right": "1rem",
+                "background-color": "@iconColor"
+              },
+              "a": {
+                "margin": "0",
+                "-webkit-transition": "0.2s linear",
+                "transition": "0.2s linear"
+              },
+              "@media (max-width: 767px)": {
+                "-webkit-justify-content": "center",
+                "justify-content": "center"
+              }
+            },
+            ".item-wrap": {
+              "margin-bottom": "16px"
+            },
+            ".item-wrap:last-child": {
+              "margin-bottom": "0"
+            },
+            ".mbr-section-subtitle": {
+              "margin-bottom": "20px",
+              "color": "#ffffff"
+            },
+            ".text": {
+              "margin-bottom": "36px",
+              "color": "#ffffff"
+            },
+            "a": {
+              "font-weight": "400 !important"
+            },
+            "a.text-danger:hover": {
+              "color": "#EABB80 !important"
+            },
+            "@media (max-width: 768px)": {
+              "img": {
+                "display": "inline"
+              },
+              ".b:nth-child(3)": {
+                "padding-top": "30px"
+              },
+              ".b:nth-child(4)": {
+                "padding-top": "30px"
+              }
+            },
+            ".text1": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "footer1",
+          "_sourceTheme": "socialm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer1\" group=\"Footers\" global once=\"footers\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Item</header>\n        <input type=\"checkbox\" title=\"Social\" name=\"showSocial\" checked>\n        <input type=\"range\" name=\"socialCount\" title=\"Social Count\" min=\"1\" max=\"6\" step=\"1\" value=\"1\" condition=\"showSocial\">\n        <input type=\"color\" title=\"Social Color\" name=\"iconColor\" value=\"#dbb330\" selected condition=\"showSocial\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/socialm5/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#232323\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#232323\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12 col-sm-6 col-md-4 b\">\n                <span class=\"navbar-logo\">\n                    <a href=\"https://mobiri.se\">\n                        <img src=\"@PROJECT_PATH@/assets/images/logo-png-300-blanc-200x57.png\" alt=\"Mobirise\" mbr-style=\"{'height': logoSize + 'rem'}\">\n                    </a>\n                </span>\n                <div class=\"social-list\" mbr-if=\"showSocial\">\n                    <div class=\"soc-item\" mbr-if=\"socialCount>0\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-twitter socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>1\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-facebook socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>2\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-youtube socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>3\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-instagram socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>4\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-behance socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>5\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-vimeo socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-12 col-sm-6 col-md b\">\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .list, .item-wrap\" mbr-theme-style=\"display-7\">LINKS<br></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Marketing</a></li>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Branding</a></li>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Web Design</a></li>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Social Media Management</a></li>\n                </ul>\n            </div>\n            <div class=\"col-12 col-sm-6 col-md b\">\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .list, .item-wrap\" mbr-theme-style=\"display-7\">WORK HOURS</h5>\n                <h5 class=\"text mbr-fonts-style\" data-app-selector=\".text\" mbr-theme-style=\"display-4\">\n                    Monday – Friday: 9AM – 5PM</h5>\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\">LOCATION</h5>\n                <h5 class=\"text mbr-fonts-style\" data-app-selector=\".text\" mbr-theme-style=\"display-4\">\n                    Kirkton Office – by appointment only</h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">64 Coast Rd\n                            KIRKTON\n                            079 5479 6236</a></li>\n                </ul>\n            </div>\n            <div class=\"col-12 col-sm-6 col-md b\">\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .list, .item-wrap\" mbr-theme-style=\"display-7\">\n                    CONTACT</h5>\n                <h5 class=\"text mbr-fonts-style\" data-app-selector=\".text\" mbr-theme-style=\"display-4\">\n                    Text or Call: (404) 345-3240\n                    <div>Email: <a href=\"index.html\" class=\"text-danger\">email@site.com</a></div>\n                </h5>\n                <h5 class=\"text1 mbr-fonts-style\" data-app-selector=\".text1\" mbr-theme-style=\"display-4\">To ensure you\n                    get directed to the right team member, please <a href=\"index.html\" class=\"text-danger\">book a consultation.</a></h5>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "tbgWRnvakX",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {},
+          "_anchor": "footer1-1w"
         }
       ]
     },
@@ -3541,6 +3815,143 @@
           "_global": true,
           "_once": false,
           "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 1rem)",
+            "padding-bottom": "(@paddingBottom * 1rem)",
+            "& when (@bg-type = 'image')": {
+              "background-image": "url(@bg-value)"
+            },
+            "& when (@bg-type = 'color')": {
+              "background-color": "@bg-value"
+            },
+            ".social-row": {
+              "display": "flex",
+              "flex-wrap": "wrap"
+            },
+            ".wrapper": {
+              "max-width": "350px"
+            },
+            ".soc-item": {
+              "display": "flex",
+              "align-items": "center",
+              "justify-content": "center",
+              "border-radius": "50%",
+              "background-color": "white",
+              "margin-right": "0.5rem",
+              "margin-bottom": "1rem",
+              "padding": "0.5rem",
+              "height": "2.5rem",
+              "width": "2.5rem"
+            },
+            "@media (max-width: 767px)": {
+              ".row": {
+                "text-align": "center"
+              },
+              ".social-row": {
+                "justify-content": "center"
+              }
+            },
+            ".list": {
+              "list-style": "none",
+              "padding-left": "0",
+              "@media (max-width: 991px)": {
+                "margin-bottom": "2rem"
+              },
+              "@media (min-width: 992px)": {
+                "margin-bottom": "0rem"
+              },
+              "color": "#bbbbbb"
+            },
+            ".mbr-text": {
+              "color": "#ffffff"
+            },
+            ".mbr-iconfont": {
+              "color": "black"
+            },
+            "img": {
+              "max-width": "100px",
+              "height": "auto",
+              "margin-bottom": "40px"
+            },
+            ".social-list": {
+              "padding-left": "0",
+              "margin-bottom": "0",
+              "list-style": "none",
+              "display": "flex",
+              "width": "100%",
+              "-webkit-flex-wrap": "wrap",
+              "flex-wrap": "wrap",
+              ".mbr-iconfont-social": {
+                "font-size": "1.1rem",
+                "color": "#ffffff",
+                "border": "none",
+                "border-radius": "50%",
+                "padding": "0.6rem",
+                "transition": "all 0.3s",
+                "display": "block",
+                "cursor": "pointer"
+              },
+              ".soc-item": {
+                "margin-right": "1rem",
+                "background-color": "@iconColor"
+              },
+              "a": {
+                "margin": "0",
+                "-webkit-transition": "0.2s linear",
+                "transition": "0.2s linear"
+              },
+              "@media (max-width: 767px)": {
+                "-webkit-justify-content": "center",
+                "justify-content": "center"
+              }
+            },
+            ".item-wrap": {
+              "margin-bottom": "16px"
+            },
+            ".item-wrap:last-child": {
+              "margin-bottom": "0"
+            },
+            ".mbr-section-subtitle": {
+              "margin-bottom": "20px",
+              "color": "#ffffff"
+            },
+            ".text": {
+              "margin-bottom": "36px",
+              "color": "#ffffff"
+            },
+            "a": {
+              "font-weight": "400 !important"
+            },
+            "a.text-danger:hover": {
+              "color": "#EABB80 !important"
+            },
+            "@media (max-width: 768px)": {
+              "img": {
+                "display": "inline"
+              },
+              ".b:nth-child(3)": {
+                "padding-top": "30px"
+              },
+              ".b:nth-child(4)": {
+                "padding-top": "30px"
+              }
+            },
+            ".text1": {
+              "color": "#ffffff"
+            }
+          },
+          "_name": "footer1",
+          "_sourceTheme": "socialm5",
+          "_customHTML": "<section data-bs-version=\"5.1\" class=\"footer1\" group=\"Footers\" global once=\"footers\">\n    <mbr-parameters>\n        <header>Size</header>\n        <input type=\"checkbox\" title=\"Full Width\" name=\"fullWidth\">\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"10\" step=\"1\" value=\"5\">\n        <header>Item</header>\n        <input type=\"checkbox\" title=\"Social\" name=\"showSocial\" checked>\n        <input type=\"range\" name=\"socialCount\" title=\"Social Count\" min=\"1\" max=\"6\" step=\"1\" value=\"1\" condition=\"showSocial\">\n        <input type=\"color\" title=\"Social Color\" name=\"iconColor\" value=\"#dbb330\" selected condition=\"showSocial\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/socialm5/components/_images/background1.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#232323\" selected>\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#232323\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\" opacity=\"{{overlayOpacity}}\" bg-color=\"{{overlayColor}}\"></div>\n\n    <div mbr-class=\"{'container': !fullWidth, 'container-fluid': fullWidth}\">\n        <div class=\"row\">\n            <div class=\"col-12 col-sm-6 col-md-4 b\">\n                <span class=\"navbar-logo\">\n                    <a href=\"https://mobiri.se\">\n                        <img src=\"@PROJECT_PATH@/assets/images/logo-png-300-blanc-200x57.png\" alt=\"Mobirise\" mbr-style=\"{'height': logoSize + 'rem'}\">\n                    </a>\n                </span>\n                <div class=\"social-list\" mbr-if=\"showSocial\">\n                    <div class=\"soc-item\" mbr-if=\"socialCount>0\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-twitter socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>1\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-facebook socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>2\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-youtube socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>3\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-instagram socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>4\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-behance socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                    <div class=\"soc-item\" mbr-if=\"socialCount>5\">\n                        <a href=\"#\" target=\"_blank\">\n                            <span mbr-icon class=\"socicon-vimeo socicon mbr-iconfont mbr-iconfont-social\"></span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n            <div class=\"col-12 col-sm-6 col-md b\">\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .list, .item-wrap\" mbr-theme-style=\"display-7\">LINKS<br></h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Marketing</a></li>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Branding</a></li>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Web Design</a></li>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">Social Media Management</a></li>\n                </ul>\n            </div>\n            <div class=\"col-12 col-sm-6 col-md b\">\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .list, .item-wrap\" mbr-theme-style=\"display-7\">WORK HOURS</h5>\n                <h5 class=\"text mbr-fonts-style\" data-app-selector=\".text\" mbr-theme-style=\"display-4\">\n                    Monday – Friday: 9AM – 5PM</h5>\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle\" mbr-theme-style=\"display-7\">LOCATION</h5>\n                <h5 class=\"text mbr-fonts-style\" data-app-selector=\".text\" mbr-theme-style=\"display-4\">\n                    Kirkton Office – by appointment only</h5>\n                <ul class=\"list mbr-fonts-style\" mbr-theme-style=\"display-4\" data-app-selector=\".list\" data-multiline mbr-article>\n                    <li class=\"item-wrap\"><a href=\"#\" class=\"text-danger\">64 Coast Rd\n                            KIRKTON\n                            079 5479 6236</a></li>\n                </ul>\n            </div>\n            <div class=\"col-12 col-sm-6 col-md b\">\n                <h5 class=\"mbr-section-subtitle mbr-fonts-style\" data-app-selector=\".mbr-section-subtitle, .list, .item-wrap\" mbr-theme-style=\"display-7\">\n                    CONTACT</h5>\n                <h5 class=\"text mbr-fonts-style\" data-app-selector=\".text\" mbr-theme-style=\"display-4\">\n                    Text or Call: (404) 345-3240\n                    <div>Email: <a href=\"index.html\" class=\"text-danger\">email@site.com</a></div>\n                </h5>\n                <h5 class=\"text1 mbr-fonts-style\" data-app-selector=\".text1\" mbr-theme-style=\"display-4\">To ensure you\n                    get directed to the right team member, please <a href=\"index.html\" class=\"text-danger\">book a consultation.</a></h5>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "tbgWRnvakX",
+          "_protectedParams": [],
+          "_global": true,
+          "_once": "footers",
+          "_params": {},
+          "_anchor": "footer1-1w"
         }
       ]
     }

@@ -50,7 +50,7 @@
       }
     ],
     "imageResize": true,
-    "uniqCompNum": 73,
+    "uniqCompNum": 80,
     "versionPublish": "5.6.11",
     "screenshot": "screenshot.png",
     "chatbutton": {},
@@ -1117,91 +1117,170 @@
           "_styles": {
             "padding-top": "(@paddingTop * 15px)",
             "padding-bottom": "(@paddingBottom * 15px)",
-            "& when (@bg-type = 'color')": {
+            "& when (@bg-type = \"color\")": {
               "background-color": "@bg-value"
             },
-            "& when (@bg-type = 'image')": {
+            "& when (@bg-type = \"image\")": {
               "background-image": "url(@bg-value)"
             },
-            ".underline": {
-              ".line": {
-                "width": "2rem",
-                "height": "1px",
-                "background": "@underlineColor",
-                "display": "inline-block"
-              }
+            ".carousel-control-next, .carousel-control-prev": {
+              "position": "relative",
+              "opacity": "1 !important"
             },
-            ".card": {
-              ".card-block": {
-                "background": "@cardColor",
-                "padding": "2rem",
-                "position": "relative",
-                "&:before": {
-                  "position": "absolute",
-                  "left": "calc(50% ~'-' 7px)",
-                  "bottom": "-7px",
-                  "width": "14px",
-                  "height": "14px",
-                  "-webkit-transform": "rotate(45deg)",
-                  "transform": "rotate(45deg)",
-                  "background-color": "@cardColor",
-                  "content": "''",
-                  "display": "block"
-                }
-              },
-              ".mbr-author": {
-                "display": "flex",
-                "-webkit-align-items": "center",
-                "align-items": "center",
-                "-webkit-justify-content": "center",
-                "justify-content": "center",
-                "padding-top": "0",
-                "border-top": "none",
-                "padding": "1.25rem",
+            ".carousel-controls": {
+              "margin-top": "3.2rem",
+              "a": {
+                "transition": "0.3s",
+                "border-radius": "50%",
+                "height": "45px",
+                "width": "45px",
                 "background": "transparent",
-                "& when (@footerBg)": {
-                  "background": "@footerBgColor"
+                "border": "2px solid @borderColor",
+                "span": {
+                  "color": "@arrowColor",
+                  "font-size": "1.2rem"
                 },
-                ".mbr-author-img": {
-                  "width": "100px",
-                  "height": "100px",
-                  "overflow": "hidden",
-                  "border-radius": "50%",
-                  "&.img-margin": {
-                    "margin-right": "1.25rem"
-                  },
-                  "img": {
-                    "width": "100%",
-                    "min-width": "100%",
-                    "min-height": "100%"
-                  }
-                },
-                ".name-wrap": {
-                  "display": "flex",
-                  "-webkit-flex-direction": "column",
-                  "flex-direction": "column",
-                  "-webkit-justify-content": "center",
-                  "justify-content": "center",
-                  ".mbr-author-name p": {
-                    "margin-bottom": "0px"
-                  },
-                  ".mbr-author-desc p": {
-                    "margin-bottom": "0px"
+                "&:hover": {
+                  "background-color": "@arrowBg",
+                  "border-color": "@arrowBorderHover",
+                  "span": {
+                    "color": "#ffffff"
                   }
                 }
               }
             },
-            "@media (max-width: 991px)": {
-              ".card:not(.last-card)": {
-                "margin-bottom": "2rem"
+            ".card-inner": {
+              "box-shadow": "0 3px 15px 2px rgba(0, 0, 0, 0.06)",
+              "background-color": "@cardBg",
+              "padding": "3.5rem 2rem"
+            },
+            ".item-text": {
+              "position": "relative",
+              "padding-top": "2rem",
+              "padding-bottom": "2rem"
+            },
+            ".carousel-item": {
+              "-webkit-justify-content": "center",
+              "justify-content": "center",
+              "& > div": {
+                "width": "100%"
               }
+            },
+            ".carousel-item.active, .carousel-item-next, .carousel-item-prev": {
+              "display": "flex"
+            },
+            ".text-block": {
+              "padding-top": "0.5rem"
+            },
+            ".mbr-text": {
+              "margin-bottom": "1.9rem"
+            },
+            ".signature, .desk": {
+              "margin": "0"
+            },
+            ".signature::before": {
+              "content": "\"\"",
+              "display": "inline-block",
+              "height": "2px",
+              "width": "40px",
+              "background": "@lineColor",
+              "vertical-align": "middle",
+              "margin-right": "20px"
+            },
+            ".testimonials-slider__icon": {
+              "color": "@quotesColor",
+              "font-size": "150px",
+              "line-height": "30px",
+              "font-weight": "700",
+              "position": "absolute",
+              "top": "50px",
+              "left": "50px"
+            },
+            ".mbri-left:before": {
+              "content": "\"\\f053\""
+            },
+            ".mbri-right:before": {
+              "content": "\"\\f054\""
+            },
+            ".signature": {
+              "font-weight": "700 !important"
+            },
+            ".mbr-section-subtitle": {
+              "font-weight": "700 !important",
+              "color": "#d8d7d7"
+            },
+            "@media (max-width: 767px)": {
+              ".item-text": {
+                "margin-top": "2rem",
+                "padding-left": "0rem",
+                "padding-right": "0rem"
+              },
+              ".carousel-control-next": {
+                "left": "1rem"
+              },
+              ".carousel-control-prev": {
+                "left": "0rem"
+              },
+              ".card-inner": {
+                "padding": "3rem 1rem"
+              }
+            },
+            "@media (min-width: 767px) and (max-width: 992px)": {
+              ".text-block": {
+                "display": "flex",
+                "justify-content": "space-between"
+              },
+              ".carousel-control-next": {
+                "left": "0rem"
+              },
+              ".carousel-control-prev": {
+                "left": "-1rem"
+              },
+              ".slide": {
+                "margin-top": "1.1rem",
+                "padding": "0"
+              }
+            },
+            "@media (min-width: 992px) and (max-width: 1200px)": {
+              ".text-block": {
+                "display": "flex",
+                "justify-content": "space-between"
+              },
+              ".carousel-control-next": {
+                "left": "0rem"
+              },
+              ".carousel-control-prev": {
+                "left": "-1rem"
+              },
+              ".slide": {
+                "margin-top": "1.1rem",
+                "padding": "0"
+              }
+            },
+            "@media (max-width: 1200px)": {},
+            "@media (min-width: 1200px)": {
+              ".carousel-control-next": {
+                "left": "1rem"
+              },
+              ".slider-wrapper": {
+                "flex-wrap": "nowrap"
+              }
+            },
+            ".icon-left": {
+              "margin-right": "0.1rem"
+            },
+            ".icon-right": {
+              "margin-left": "0.1rem"
+            },
+            ".mbr-section-title": {
+              "color": "#efefef"
             }
           },
           "_name": "testimonials2",
-          "_sourceTheme": "hotelm4",
-          "_customHTML": "<section class=\"testimonials2 hotelm4_testimonials2\" group=\"Testimonials\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-parallax-background': bg.parallax}\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <header>Size</header>\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"9\" step=\"1\" value=\"4\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"9\" step=\"1\" value=\"4\">\n        <select title=\"Cards\" name=\"cardsAmount\">\n            <option value=\"1\">1</option>\n            <option value=\"2\" selected>2</option>\n            <option value=\"3\">3</option>\n        </select>\n        <header>Show / Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked>\n        <input type=\"checkbox\" title=\"Underline\" name=\"showUnderline\" checked condition=\"showSubtitle\">\n        <input type=\"checkbox\" title=\"Text\" name=\"showText\">\n        <input type=\"checkbox\" title=\"Author Image\" name=\"showAuthorimg\" checked>\n        <input type=\"checkbox\" title=\"Author Name\" name=\"showAuthorname\" checked>\n        <input type=\"checkbox\" title=\"Author Desc\" name=\"showAuthordesc\" checked>\n        <input type=\"checkbox\" title=\"Card Footer BG\" name=\"footerBg\">\n        <header>Colors</header>\n        <input type=\"color\" title=\"Underline\" name=\"underlineColor\" value=\"#ffffff\" condition=\"showSubtitle && showUnderline\">\n        <input type=\"color\" title=\"Card BG\" name=\"cardColor\" value=\"#ffffff\">\n        <input type=\"color\" title=\"Card Footer BG\" name=\"footerBgColor\" value=\"#878787\" condition=\"footerBg\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@PROJECT_PATH@/assets/images/exterieur8.webp\" parallax selected>\n            <input type=\"color\" title=\"Color\" value=\"#333333\">\n            <input type=\"video\" title=\"Video\" value=\"https://www.youtube.com/watch?v=2jqUN6d6ZyM\">\n        </fieldset>\n\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#000000\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.4\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n\n    <div class=\"container justify-content-center\">\n        <h3 class=\"mbr-section-subtitle mbr-fonts-style mbr-white mbr-lighter align-center\" mbr-class=\"{'pb-3': !showUnderline}\" mbr-theme-style=\"display-4\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle, .underline\">VOS SEJOURS ET EVENEMENTS PRIVES EN MAISON DE MAITRE</h3>\n\n        <div class=\"underline align-center pb-3\" mbr-if=\"showUnderline && showSubtitle\">\n            <div class=\"line\"></div>\n        </div>\n\n        <h2 class=\"mbr-section-title main-title mbr-fonts-style mbr-white align-center\" mbr-class=\"{'pb-3': showText,\n                        'pb-5': !showText}\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".main-title\">\n            Ce que nos clients nous disent</h2>\n        <p class=\"mbr-text main-text mbr-fonts-style mbr-white mbr-lighter pb-5 m-0 align-center\" mbr-theme-style=\"display-7\" mbr-if=\"showText\" data-app-selector=\".main-text\">\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis voluptatem dolores reiciendis minus\n            accusamus, non maiores doloribus?\n        </p>\n        <div class=\"row justify-content-center\">\n            <div class=\"col-xs-12 col-lg-4\">\n                <div class=\"mbr-testimonial card mbr-testimonial-lg\" mbr-class=\"{'last-card': cardsAmount == 1}\">\n                    <div class=\"card-block mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".card-block\">\n                        <p class=\"mbr-text mbr-lighter m-0\">A fantastic old bourgeois country house fully renovated to the finest of standards. From rooms to common parts, every detail has been thought out for guests to feel immediately at home and enjoy the house to its fullest potential. Nothing is missing: High end beddings and linens in all the uniquely designed bedrooms, professional kitchen appliances, games and entertainment systems, numerous outdoor sitting area and activities. All of this surrounded by impeccable taste and luxury amenities all around. if you’re somehow still not inspired to cook by the amazing kitchen, I highly recommend Sophie’s cooking who arranged delicious meals for us, locally sourced and freshly prepared for culinary discoveries.&nbsp;</p>\n                    </div>\n                    <div class=\"mbr-author card-footer\" mbr-if=\"showAuthorimg || showAuthorname || showAuthordesc\">\n                        <div class=\"mbr-author-img\" mbr-class=\"{'img-margin': showAuthorname || showAuthordesc}\" mbr-if=\"showAuthorimg\">\n                            <img src=\"@PROJECT_PATH@/assets/images/karim.webp\" alt>\n                        </div>\n                        <div class=\"name-wrap mbr-white\" mbr-if=\"showAuthorname || showAuthordesc\">\n                            <div class=\"mbr-author-name mbr-fonts-style\" mbr-theme-style=\"display-5\" data-app-selector=\".mbr-author-name\" mbr-if=\"showAuthorname\">\n                                <p>Karim</p>\n                            </div>\n                            <small class=\"mbr-author-desc mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-author-desc\" mbr-if=\"showAuthordesc\">\n                                <p>2022</p>\n                            </small>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"col-xs-12 col-lg-4\" mbr-if=\"cardsAmount > 1\">\n                <div class=\"mbr-testimonial card mbr-testimonial-lg\" mbr-class=\"{'last-card': cardsAmount == 2}\">\n                    <div class=\"card-block mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".card-block\">\n                        <p class=\"mbr-text mbr-lighter m-0\">Sophie et Daniel sont des hôtes irréprochables. C'est simple nous n'avons jamais été aussi bien accueillis dans un airbnb. La maison est suréquipée, le lieu splendide. Sophie est à la fois discrete mais prête à tout pour que vous vous sentiez comme chez vous. Je recommande sans aucune réserve!!<br></p>\n                    </div>\n                    <div class=\"mbr-author card-footer\" mbr-if=\"showAuthorimg || showAuthorname || showAuthordesc\">\n                        <div class=\"mbr-author-img\" mbr-class=\"{'img-margin': showAuthorname || showAuthordesc}\" mbr-if=\"showAuthorimg\">\n                            <img src=\"@PROJECT_PATH@/assets/images/paul.webp\" alt>\n                        </div>\n                        <div class=\"name-wrap mbr-white\" mbr-if=\"showAuthorname || showAuthordesc\">\n                            <div class=\"mbr-author-name mbr-fonts-style\" mbr-theme-style=\"display-5\" data-app-selector=\".mbr-author-name\" mbr-if=\"showAuthorname\">\n                                <p>Paul</p>\n                            </div>\n                            <small class=\"mbr-author-desc mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-author-desc\" mbr-if=\"showAuthordesc\">\n                                <p>2022</p>\n                            </small>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"col-xs-12 col-lg-4\" mbr-if=\"cardsAmount > 2\">\n                <div class=\"mbr-testimonial card mbr-testimonial-lg\" mbr-class=\"{'last-card': cardsAmount == 3}\">\n                    <div class=\"card-block mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".card-block\">\n                        <p class=\"mbr-text mbr-lighter m-0\">\n                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab sunt repudiandae voluptatem\n                            quae provident pariatur, amet aspernatur et cupiditate eos reprehenderit exercitationem,\n                            quidem voluptate mollitia officiis corporis beatae atque magni!\n                        </p>\n                    </div>\n                    <div class=\"mbr-author card-footer\" mbr-if=\"showAuthorimg || showAuthorname || showAuthordesc\">\n                        <div class=\"mbr-author-img\" mbr-class=\"{'img-margin': showAuthorname || showAuthordesc}\" mbr-if=\"showAuthorimg\">\n                            <img src=\"../_images/faces/face3.jpg\">\n                        </div>\n                        <div class=\"name-wrap mbr-white\" mbr-if=\"showAuthorname || showAuthordesc\">\n                            <div class=\"mbr-author-name mbr-fonts-style\" mbr-theme-style=\"display-5\" data-app-selector=\".mbr-author-name\" mbr-if=\"showAuthorname\">\n                                <p>John Smith</p>\n                            </div>\n                            <small class=\"mbr-author-desc mbr-fonts-style\" mbr-theme-style=\"display-7\" data-app-selector=\".mbr-author-desc\" mbr-if=\"showAuthordesc\">\n                                <p>Client</p>\n                            </small>\n                        </div>\n                    </div>\n                </div>\n            </div>\n\n        </div>\n    </div>\n</section>",
-          "_cid": "t5NkDpmNrn",
-          "_anchor": "testimonials2-1",
+          "_sourceTheme": "attorneym4",
+          "_customHTML": "<section class=\"carousel testimonials2 attorneym4_testimonials2 testimonials-slider\" group=\"Testimonials\" data-bg-video=\"{{bg.type == 'video' && bg.value.url}}\" mbr-class=\"{'mbr-parallax-background': bg.parallax}\" plugins=\"BootstrapCarouselSwipe,mbr-testimonials-slider,font-awesome\" data-interval=\"false\">\n\n    <mbr-parameters>\n        <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <header>Size</header>\n        <input type=\"range\" title=\"Padding Top\" name=\"paddingTop\" min=\"0\" max=\"8\" step=\"1\" value=\"5\" inline>\n        <input type=\"range\" title=\"Padding Bottom\" name=\"paddingBottom\" min=\"0\" max=\"8\" step=\"1\" value=\"5\" inline>\n        <header>Show/Hide</header>\n        <input type=\"checkbox\" title=\"Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Subtitle\" name=\"showSubtitle\" checked>\n        <input type=\"checkbox\" title=\"Author Name\" name=\"showName\" checked>\n        <input type=\"checkbox\" title=\"Author Title\" name=\"showDesk\" checked>\n        <header>Items</header>\n        <input type=\"range\" inline title=\"Amount\" name=\"testimonialsSlides\" min=\"1\" max=\"20\" step=\"1\" value=\"4\">\n        <select name=\"columns\" title=\"Columns in Item\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\" selected>3</option>\n        </select>\n        <input type=\"checkbox\" title=\"Autoplay\" name=\"showAutoplay\" checked>\n        <input type=\"range\" inline title=\"Autoplay Interval (ms)\" name=\"interval\" min=\"1000\" max=\"8000\" step=\"1000\" value=\"5000\" condition=\"showAutoplay\">\n        <header>Color</header>\n        <input type=\"color\" title=\"Line Color\" name=\"lineColor\" value=\"#626367\">\n        <input type=\"color\" title=\"Quotes Color\" name=\"quotesColor\" value=\"#dbb330\">\n        <input type=\"color\" title=\"Arrow Color\" name=\"arrowColor\" value=\"#dbb330\">\n        <input type=\"color\" title=\"Border Color\" name=\"borderColor\" value=\"#dbb330\">\n        <input type=\"color\" title=\"Arrow Hover Border Color\" name=\"arrowBorderHover\" value=\"#dbb330\">\n        <input type=\"color\" title=\"Arrow Background Color\" name=\"arrowBg\" value=\"#dbb330\">\n        <input type=\"color\" title=\"Card Background\" name=\"cardBg\" value=\"#efefef\">\n        <header>Background</header>\n        <fieldset type=\"background\" name=\"bg\" parallax>\n            <input type=\"image\" title=\"Image\" value=\"@ADDONS_PATH@/attorneym4/components/_images/court.jpg\">\n            <input type=\"color\" title=\"Color\" value=\"#232323\" selected>\n            <input type=\"video\" title=\"Video\" value=\"https://vimeo.com/171547423\">\n        </fieldset>\n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" condition=\"bg.type !== 'color'\" checked>\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#ffffff\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.8\" condition=\"overlay && bg.type !== 'color'\">\n        <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type!== 'color'\" mbr-style=\"{'opacity': overlayOpacity, 'background-color': overlayColor}\">\n    </div>\n\n    <div class=\"container text-center wrapper\">\n        <div class=\"row\">\n            <div class=\"text-block col-md-12 col-lg-12 col-xl-4\">\n                <div class=\"title-block\">\n                    <h4 class=\"mbr-section-subtitle mbr-fonts-style align-left\" mbr-theme-style=\"display-7\" mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\"><span style=\"font-weight: normal;\">Commentaires</span></h4>\n                    <h3 class=\"mbr-fonts-style mbr-section-title align-left mbr-info\" mbr-theme-style=\"display-2\" mbr-if=\"showTitle\" data-app-selector=\".mbr-section-title\">Ce que nos clients écrivent sur nous</h3>\n                </div>\n\n                <div class=\"carousel-controls\">\n                    <a class=\"carousel-control-prev\" role=\"button\" data-slide=\"prev\">\n                        <span aria-hidden=\"true\" class=\"mobi-mbri mobi-mbri-arrow-prev mbr-iconfont sign icon-left\"></span>\n                        <span class=\"sr-only\">Previous</span>\n                    </a>\n                    <a class=\"carousel-control-next\" role=\"button\" data-slide=\"next\">\n                        <span aria-hidden=\"true\" class=\"mobi-mbri mobi-mbri-arrow-next mbr-iconfont sign icon-right\"></span>\n                        <span class=\"sr-only\">Next</span>\n                    </a>\n                </div>\n            </div>\n\n\n            <div class=\"carousel slide col-md-12 col-lg-12 col-xl-8\" role=\"listbox\" data-pause=\"true\" data-keyboard=\"false\" data-ride=\"{{showAutoplay ? 'carousel' : 'false'}}\" data-interval=\"{{showAutoplay ? interval : 'false'}}\">\n                <div mbr-list mbr-list-grow=\"testimonialsSlides\" class=\"carousel-inner\">\n                    <div class=\"carousel-item\">\n                        <div class=\"row slider-wrapper\">\n                            <div class=\"col-md-6 col-lg-6 item-text\">\n                                <div class=\"card-inner\">\n                                    <div class=\"testimonials-slider__icon\">“</div>\n                                    <div class=\"mbr-text mbr-fonts-style align-left\" mbr-theme-style=\"display-7\" mbr-article data-app-selector=\".mbr-text\" data-multiline><p>We booked in Lizac for a long stay where my wife, our 18 months old son and myself were able to host friends, family and colleagues over an extended period of time.</p><p>(...)</p><p>Go to Lizac as soon as you can for unforgettable memories ❤️🏡❤️</p><p><br></p></div>\n                                    <h6 class=\"mbr-fonts-style signature mbr-bold align-left mbr-info\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".signature\">\n                                        Karim<br><span style=\"font-weight: normal;\"><i>Commentaire laissé sur Airbnb</i></span></h6>\n                                </div>\n                            </div>\n                            <div class=\"col-md-6 col-lg-6 item-text d-none d-md-block\">\n                                <div class=\"card-inner\">\n                                    <div class=\"testimonials-slider__icon\">“</div>\n                                    <div class=\"mbr-text mbr-fonts-style align-left\" mbr-theme-style=\"display-7\" mbr-article data-app-selector=\".mbr-text\" data-multiline>This is an amazing home, luxuriously equipped and decorated in a unique style combining comfort, elegance and playfulness. The outdoor living areas are equally stylish and comfortable, with natural shade from the beautiful old Acacia trees. The wonderful hosts are on site if you need anything at all but they will keep to their own quarters to give their guests privacy and seclusion.</div>\n                                    <h6 class=\"mbr-fonts-style signature mbr-bold align-left mbr-info\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".signature\">&nbsp;Peter,<span style=\"font-weight: normal;\"><i><br> Commentaire laissé sur Airbnb</i></span></h6>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n                    \n                <div class=\"carousel-item\">\n                        <div class=\"row slider-wrapper\">\n                            <div class=\"col-md-6 col-lg-6 item-text\">\n                                <div class=\"card-inner\">\n                                    <div class=\"testimonials-slider__icon\">“</div>\n                                    <div class=\"mbr-text mbr-fonts-style align-left\" mbr-theme-style=\"display-7\" mbr-article data-app-selector=\".mbr-text\" data-multiline>Il y a des commentaires qui sont difficiles à rédiger, tant l’expérience nous laisse sans voix. Séjourner chez Sophie et Daniel nous laisse sans voix!!<div>La maison et le domaine sont tout bonnement exceptionnels, la décoration nous fait voyager, et les équipements sont incroyables.</div><div>Que dire de la gentillesse, de la discrétion et de la passion pour cette maison qui caractérisent les hôtes…</div><div>Encore un grand merci à vous deux pour cet accueil et cette aventure. Nous reviendrons avec un très grand plaisir.</div></div>\n                                    <h6 class=\"mbr-fonts-style signature mbr-bold align-left mbr-info\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".signature\">\n                                        Adrien<br><span style=\"font-weight: normal;\"><i>Commentaire laissé sur Airbnb</i></span></h6>\n                                </div>\n                            </div>\n                            <div class=\"col-md-6 col-lg-6 item-text d-none d-md-block\">\n                                <div class=\"card-inner\">\n                                    <div class=\"testimonials-slider__icon\">“</div>\n                                    <div class=\"mbr-text mbr-fonts-style align-left\" mbr-theme-style=\"display-7\" mbr-article data-app-selector=\".mbr-text\" data-multiline>L’annonce est attractive, mais la réalité est encore au-delà.<div>La maison est magnifique, le soin apporté à la décoration est incroyable. Chaque pièce a ses surprises, on peut passer du temps juste à profiter des détails dont la maison fourmille.</div><div>(...)</div><div>En toute sincérité, je ne vois ce qu’ils pourraient proposer en plus, j’ai rarement vu une prestation aussi complète.</div><div>Aucune hésitation à avoir.</div></div>\n                                    <h6 class=\"mbr-fonts-style signature mbr-bold align-left mbr-info\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".signature\">&nbsp;Matthieu,<span style=\"font-weight: normal;\"><i><br> Commentaire laissé sur Airbnb</i></span></h6>\n                                </div>\n                            </div>\n                        </div>\n                    </div><div class=\"carousel-item\">\n                        <div class=\"row slider-wrapper\">\n                            <div class=\"col-md-6 col-lg-6 item-text\">\n                                <div class=\"card-inner\">\n                                    <div class=\"testimonials-slider__icon\">“</div>\n                                    <div class=\"mbr-text mbr-fonts-style align-left\" mbr-theme-style=\"display-7\" mbr-article data-app-selector=\".mbr-text\" data-multiline><p>Sophie and Daniel’s property is the best air bnb I’ve stayed it. Tucked away between cherry and apple fields you feel like you are worlds away, but just a short drive to any convenience you need in nearby town. Sophie and Daniel renovated the old farm house to the highest standard. Sophie’s design and decor taste are superb and every last detail was absolutely beautiful- even better than the pictures posted. The beds and linens are so comfortable. The pool was great for a relaxing break from visiting some of the larger and busier cities in France. (...)</p><p>we had a fabulous time and hope to be back with family!</p><div><br></div><p></p></div>\n                                    <h6 class=\"mbr-fonts-style signature mbr-bold align-left mbr-info\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".signature\">\n                                        Amanda<br><span style=\"font-weight: normal;\"><i>Commentaire laissé sur Airbnb</i></span></h6>\n                                </div>\n                            </div>\n                            <div class=\"col-md-6 col-lg-6 item-text d-none d-md-block\">\n                                <div class=\"card-inner\">\n                                    <div class=\"testimonials-slider__icon\">“</div>\n                                    <div class=\"mbr-text mbr-fonts-style align-left\" mbr-theme-style=\"display-7\" mbr-article data-app-selector=\".mbr-text\" data-multiline>L’annonce est attractive, mais la réalité est encore au-delà.<div>La maison est magnifique, le soin apporté à la décoration est incroyable. Chaque pièce a ses surprises, on peut passer du temps juste à profiter des détails dont la maison fourmille.</div><div>(...)</div><div>En toute sincérité, je ne vois ce qu’ils pourraient proposer en plus, j’ai rarement vu une prestation aussi complète.</div><div>Aucune hésitation à avoir.</div></div>\n                                    <h6 class=\"mbr-fonts-style signature mbr-bold align-left mbr-info\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".signature\">&nbsp;Matthieu,<span style=\"font-weight: normal;\"><i><br> Commentaire laissé sur Airbnb</i></span></h6>\n                                </div>\n                            </div>\n                        </div>\n                    </div><div class=\"carousel-item\">\n                        <div class=\"row slider-wrapper\">\n                            <div class=\"col-md-6 col-lg-6 item-text\">\n                                <div class=\"card-inner\">\n                                    <div class=\"testimonials-slider__icon\">“</div>\n                                    <div class=\"mbr-text mbr-fonts-style align-left\" mbr-theme-style=\"display-7\" mbr-article data-app-selector=\".mbr-text\" data-multiline>Il y a des commentaires qui sont difficiles à rédiger, tant l’expérience nous laisse sans voix. Séjourner chez Sophie et Daniel nous laisse sans voix!!<div>La maison et le domaine sont tout bonnement exceptionnels, la décoration nous fait voyager, et les équipements sont incroyables.</div><div>Que dire de la gentillesse, de la discrétion et de la passion pour cette maison qui caractérisent les hôtes…</div><div>Encore un grand merci à vous deux pour cet accueil et cette aventure. Nous reviendrons avec un très grand plaisir.</div></div>\n                                    <h6 class=\"mbr-fonts-style signature mbr-bold align-left mbr-info\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".signature\">\n                                        Adrien<br><span style=\"font-weight: normal;\"><i>Commentaire laissé sur Airbnb</i></span></h6>\n                                </div>\n                            </div>\n                            <div class=\"col-md-6 col-lg-6 item-text d-none d-md-block\">\n                                <div class=\"card-inner\">\n                                    <div class=\"testimonials-slider__icon\">“</div>\n                                    <div class=\"mbr-text mbr-fonts-style align-left\" mbr-theme-style=\"display-7\" mbr-article data-app-selector=\".mbr-text\" data-multiline>L’annonce est attractive, mais la réalité est encore au-delà.<div>La maison est magnifique, le soin apporté à la décoration est incroyable. Chaque pièce a ses surprises, on peut passer du temps juste à profiter des détails dont la maison fourmille.</div><div>(...)</div><div>En toute sincérité, je ne vois ce qu’ils pourraient proposer en plus, j’ai rarement vu une prestation aussi complète.</div><div>Aucune hésitation à avoir.</div></div>\n                                    <h6 class=\"mbr-fonts-style signature mbr-bold align-left mbr-info\" mbr-theme-style=\"display-7\" mbr-if=\"showName\" data-app-selector=\".signature\">&nbsp;Matthieu,<span style=\"font-weight: normal;\"><i><br> Commentaire laissé sur Airbnb</i></span></h6>\n                                </div>\n                            </div>\n                        </div>\n                    </div></div>\n\n\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "tbmH0vYJHq",
+          "_anchor": "testimonials2-27",
           "_protectedParams": [],
           "_global": false,
           "_once": false,
